@@ -1,6 +1,5 @@
 import os
 
-
 board = [
     ['#','#','#','#','#','#','#','#','#','#','#'],
     ['#',' ',' ',' ',' ',' ','#',' ',' ',' ','#'],
@@ -15,25 +14,20 @@ board = [
     ['#','#','#','#','#','#','#','#','#','F','#']
 ]
 
-
-
-player = 'P'
 class Maze:
 
+    player = 'P'
     player_x = 1
     player_y = 1
     running = True
 
-
     def print_maze(self):
         os.system('cls')
-        board[self.player_y][self.player_x] = player
-        print(self.player_y, self.player_x)
+        board[self.player_y][self.player_x] = self.player
         for row in board:
             print(*row, sep="")
 
-
-    def player_movement(self, player):
+    def player_movement(self):
         move = input("Move(WASD): ").upper()
         if (move == 'W' and board[self.player_y-1][self.player_x] != '#'):
             board[self.player_y][self.player_x] = ' '
@@ -51,12 +45,8 @@ class Maze:
             board[self.player_y][self.player_x] = ' '
             self.player_x += 1
 
-
-
-
 m = Maze()
-
 
 while m.running:
     m.print_maze()
-    m.player_movement(player)
+    m.player_movement()
