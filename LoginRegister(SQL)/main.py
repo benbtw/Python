@@ -1,12 +1,7 @@
-"""
-MAKE SQL FUNCTION TO BE ABLE TO CHECK IF USERNAME OR PASSWORD IS INSIDE OF DATABASE 
-"""
 from sql_stuff import SQL_CLASS
 import time, os
 sql = SQL_CLASS
-user_name = ""
-pass_word = ""
-connection = sql.create_db_connection("localhost", "root", "password", "accounts")
+connection = sql.create_db_connection("localhost", "root", "passwordToDatabase", "accounts")
 
 def main_menu():
     os.system("cls")
@@ -48,7 +43,7 @@ def register():
     pop_acc = f"INSERT INTO account_info VALUES ('{user_name}', '{pass_word}');"
     sql.execute_query(connection, pop_acc)
     print("Account registered.")
-    time.sleep(1.5)
+    time.sleep(1)
     main_menu()
 
 def change_pass():
@@ -68,7 +63,7 @@ def change_pass():
     change_info = f"UPDATE account_info SET pass_word = '{pass_word}' WHERE user_name = '{user_name}';"
     sql.execute_query(connection, change_info)
     print("Password Changed.")
-    time.sleep(1.5)
+    time.sleep(1)
     main_menu()
 
 def delete_acc():
@@ -87,7 +82,7 @@ def delete_acc():
             sql.execute_query(connection, delete_info)
             print("Deleted Account!")
             break
-    time.sleep(1.5)
+    time.sleep(1)
     main_menu()
 
 main_menu()
