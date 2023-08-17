@@ -24,7 +24,7 @@ def main_menu():
         case "5":
             print("Goodbye.")
         case _:
-            print("Error, enter 1-4.")
+            print("Error, enter 1-5.")
 
 def login():
     while True:
